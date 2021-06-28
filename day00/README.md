@@ -1,6 +1,12 @@
 Использованные ресурсы:
 
-Серия статей про bash https://habr.com/ru/company/ruvds/blog/325522/ https://habr.com/ru/company/ruvds/blog/325928/ https://habr.com/ru/company/ruvds/blog/327530/
+Серия статей про bash:
+
+https://habr.com/ru/company/ruvds/blog/325522/
+
+https://habr.com/ru/company/ruvds/blog/325928/
+
+https://habr.com/ru/company/ruvds/blog/327530/
 
 Команды bash
 https://losst.ru/komanda-cut-linux
