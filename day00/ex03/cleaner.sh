@@ -1,13 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
-cp /Users/hrema/Desktop/DS/day00/ex02/hh_sorted.csv hh_position.csv
+cp ../ex02/hh_sorted.csv hh_position.csv
 
-cat hh_position.csv | egrep -i "junior|middle|senior" | cut -d '"' -f 6 > tmp_good_vacantions
-
-j=.*junior.*
+cat hh_position.csv | egrep -i "junior|middle|senior" | cut -d '"' -f 6 > tmp_good_vacancies
 
 IFS=$'\n'
-for entry in $(cat tmp_good_vacantions)
+for entry in $(cat tmp_good_vacancies)
 do
 	IFS=' '
 	for value in $entry
@@ -30,12 +28,12 @@ do
 		fi
 	done
 done
-rm -rf tmp_good_vacantions
+rm -rf tmp_good_vacancies
 
-cat hh_position.csv | tail -n 20 | egrep -v "Junior|Middle|Senior" | cut -d '"' -f 6 > tmp_bad_vacantions
+cat hh_position.csv | tail -n 20 | egrep -v -i "Junior|Middle|Senior" | cut -d '"' -f 6 > tmp_bad_vacancies
 while read line
 do
 	n=$(cat hh_position.csv | grep -n "$line" | cut -d ":" -f1 | head -n 1)
 	sed -i '' "$n s#$line#-#1" hh_position.csv
-done < tmp_bad_vacantions
-rm -rf tmp_bad_vacantions
+done < tmp_bad_vacancies
+rm -rf tmp_bad_vacancies

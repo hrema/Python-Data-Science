@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
-cat /Users/hrema/Desktop/DS/day00/ex00/hh.json | jq -f -r filter.jq > hh.csv
+cat ../ex00/hh.json | jq -f -r filter.jq > hh.csv

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 proffesion=$1
 proffesion="${proffesion// /+}"
