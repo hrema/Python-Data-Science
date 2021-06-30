@@ -1,6 +1,6 @@
 import sys
 
-def	get_prices(name_company):
+def	print_price_company(company):
 	COMPANIES = {
 		'Apple': 'AAPL',
 		'Microsoft': 'MSFT',
@@ -17,15 +17,15 @@ def	get_prices(name_company):
 		'NOK': 3.37
 		}
 
-	COMPANIES_with_lower_key = {k.lower(): v for k, v in COMPANIES.items()}
-	name_company = name_company.lower()
-	if name_company not in COMPANIES_with_lower_key.keys():
+	COMPANIES_lower_key = {k.lower(): v for k, v in COMPANIES.items()}
+	company_lower = company.lower()
+	if company_lower not in COMPANIES_lower_key.keys():
 		print("Unknown company")
 		return
 	else:
-		ticker = COMPANIES_with_lower_key[name_company]
+		ticker = COMPANIES_lower_key[company_lower]
 		print(STOCKS[ticker])
 
 if __name__ == "__main__":
 	if (len(sys.argv) == 2):
-		get_prices(sys.argv[1])
+		print_price_company(sys.argv[1])

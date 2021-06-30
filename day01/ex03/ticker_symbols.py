@@ -17,20 +17,22 @@ def	print_name_and_price(ticker):
 		'NOK': 3.37
 		}
 	
-	STOCKS_with_lower_key = {key.lower(): v for key, v in STOCKS.items()}
+	STOCKS_lower_key = {key.lower(): v for key, v in STOCKS.items()}
 	ticker_lower = ticker.lower()
 
-	if (ticker_lower not in STOCKS_with_lower_key.keys()):
+	if (ticker_lower not in STOCKS_lower_key.keys()):
 		print("Unknown ticker")
 		return
 	else:
-		price = STOCKS_with_lower_key[ticker_lower]
-	COMPANIES_with_lower_value = {key: v.lower() for key, v in COMPANIES.items()}
-	for key, v in COMPANIES_with_lower_value.items():
+		price = STOCKS_lower_key[ticker_lower]
+
+	COMPANIES_lower_value = {key: v.lower() for key, v in COMPANIES.items()}
+	for key, v in COMPANIES_lower_value.items():
 		if (v == ticker_lower):
-			name_company = key
+			company = key
 			break
-	print(name_company, price)
+
+	print(company, price)
 
 
 if __name__ == "__main__":
