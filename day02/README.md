@@ -12,6 +12,8 @@ ex04: Требуется написать класс Analytics, который �
 
 ex05: Нужно перенести всю логику в файл make_report.py, в файле config.py должна лежать шаблонная строка и параметр количества предсказаний. Все классы из предыдущего упражнения должны лежать в файле analytics.py.
 
+ex06: Нужно добавить логи в каждый метод каждого класса и отправить в канал Slack уведомление о успешном/ошибочном создании файла с логами.
+
 # Использованные ресурсы:
 https://python-scripts.com/python-class
 https://pythonru.com/osnovy/obrabotka-iskljuchenij-python-blok-try-except-blok-finally
@@ -20,3 +22,4 @@ https://shultais.education/blog/python-f-strings
 https://stackoverflow.com/questions/42497625/how-to-postpone-defer-the-evaluation-of-f-strings
 https://ru.stackoverflow.com/questions/414593/
 https://gist.github.com/devStepsize/b1b795309a217d24566dcc0ad136f784
+https://coderoad.ru/36484184/
