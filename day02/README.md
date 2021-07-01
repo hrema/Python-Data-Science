@@ -10,7 +10,11 @@ ex03: Требуется создать вложенный класс Calculatio
 
 ex04: Требуется написать класс Analytics, который наследуется от Calculations, с двумя методами: pred_random() и pred_last(). Pred_random() принимает число, равное количеству пердсказаний которое она вернет. Pred_last() возвращает последний элемент данных, которые вернула file_reader().
 
+ex05: Нужно перенести всю логику в файл make_report.py, в файле config.py должна лежать шаблонная строка и параметр количества предсказаний. Все классы из предыдущего упражнения должны лежать в файле analytics.py.
+
 # Использованные ресурсы:
 https://python-scripts.com/python-class
 https://pythonru.com/osnovy/obrabotka-iskljuchenij-python-blok-try-except-blok-finally
 https://www.geeksforgeeks.org/inner-class-in-python/
+https://shultais.education/blog/python-f-strings
+https://stackoverflow.com/questions/42497625/how-to-postpone-defer-the-evaluation-of-f-strings
