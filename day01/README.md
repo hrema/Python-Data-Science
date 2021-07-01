@@ -27,3 +27,6 @@ https://python-scripts.com/module-sys
 https://pythonworld.ru/tipy-dannyx-v-python/slovari-dict-funkcii-i-metody-slovarej.html
 https://dev-gang.ru/article/kak-otsortirovat-slovar-po-znaczeniu-v-python-lpmzj4kbrj/
 https://pythonworld.ru/tipy-dannyx-v-python/mnozhestva-set-i-frozenset.html
+https://en.wikipedia.org/wiki/Caesar_cipher
+https://pythonz.net/references/named/chr/
+https://pythonz.net/references/named/str.title/
