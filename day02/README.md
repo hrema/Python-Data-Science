@@ -18,3 +18,5 @@ https://pythonru.com/osnovy/obrabotka-iskljuchenij-python-blok-try-except-blok-f
 https://www.geeksforgeeks.org/inner-class-in-python/
 https://shultais.education/blog/python-f-strings
 https://stackoverflow.com/questions/42497625/how-to-postpone-defer-the-evaluation-of-f-strings
+https://ru.stackoverflow.com/questions/414593/
+https://gist.github.com/devStepsize/b1b795309a217d24566dcc0ad136f784

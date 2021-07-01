@@ -26,3 +26,4 @@ if __name__ == "__main__":
 	counts_pred = calc_pred.counts()
 	
 	print(config.string.format(counts[0] + counts[1], counts[1], counts[0], fractions[1], fractions[0], config.num_of_steps, counts_pred[1], counts_pred[0]))
+	r.send_message_to_slack()

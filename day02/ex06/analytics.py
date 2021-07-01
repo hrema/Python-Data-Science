@@ -1,7 +1,9 @@
 import sys
 from random import randint
 import logging
-
+import os
+import json
+import urllib.request
 
 logging.basicConfig(filename="analytics.log", filemode="w", format="%(asctime)s %(message)s", level=logging.DEBUG)
 
@@ -37,6 +39,21 @@ class Research:
 		except Exception:
 			logging.debug('Research.file_reader(): failed readed file')
 			return("Wrong struct to file")
+
+	def	send_message_to_slack(self):
+		webhook_url = 'https://hooks.slack.com/services/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'
+		
+		if not os.path.isfile("/Users/hrema/Desktop/Python-Data-Science/day02/ex06/analytics.log"):
+			msg = "The report was not created due to an error."
+		else:
+			msg = "The report was created successfully"
+		
+		slack_data = {'text': msg}
+		data = json.dumps(slack_data)
+		data = str(data)
+		data = data.encode('utf-8')
+		req = urllib.request.Request(webhook_url, data=data)
+		responce = urllib.request.urlopen(req)
 
 	class Calculations:
 		def __init__(self, data):
@@ -86,4 +103,4 @@ class Research:
 					logging.debug('Analytics.save_file(): succes writed file')
 			except:
 				logging.debug('Analytics.save_file(): failed writed file')
-				raise RuntimeError("Wrong path of file")
+				raise RuntimeError("Wrong path to file")
