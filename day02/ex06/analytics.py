@@ -41,8 +41,10 @@ class Research:
 	class Calculations:
 		def __init__(self, data):
 			self.data = data
+			logging.debug('Calculations.__init__(): succes created object')
 
 		def counts(self):
+			logging.debug('Calculations.counts(): calculating the counts of heads and tails')
 			head = 0
 			tail = 0
 			for list in self.data:
@@ -54,6 +56,7 @@ class Research:
 			return (head, tail)
 		
 		def fractions(self, head_and_tail):
+			logging.debug('Calculations.fractions(): calculating the percentage of heads and tails')
 			summa = head_and_tail[0] + head_and_tail[1]
 			head_percent = (head_and_tail[0] / summa) * 100
 			tail_percent = (head_and_tail[1] / summa) * 100
@@ -61,6 +64,7 @@ class Research:
 
 	class Analytics(Calculations):
 		def	pred_random(self, pred):
+			logging.debug('Analytics.pred_random(): predicting heads and tails')
 			predictions = []
 			for i in range(0, pred):
 				num = randint(0, 1)
@@ -72,11 +76,14 @@ class Research:
 			return(predictions)
 
 		def pred_last(self, data):
+			logging.debug('Analytics.pred_last(): return last elements')
 			return (data[-1])
 
 		def save_file(self, data, name, format):
 			try:
 				with open(f"{name}.{format}", "w") as f:
 					f.write(data)
+					logging.debug('Analytics.save_file(): succes writed file')
 			except:
+				logging.debug('Analytics.save_file(): failed writed file')
 				raise RuntimeError("Wrong path of file")
