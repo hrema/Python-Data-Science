@@ -4,7 +4,15 @@ ex00: Нужно создать виртуальное окружение с н�
 
 ex01: Необходимо установить в виртуальную среду termgraph и с помощью скрипта pies_bars.sh нарисовать график.
 
+ex02: Нужно написать скрипт, который скачает две библиотеки и сохранить все скачанные библиотеки виртуального окружения в файл requirements.txt. Также скрипт архивирует папку виртуального окружения.
 
 # Использованые ресурсы:
-https://pythonworld.ru/moduli/modul-os.html
-https://python-scripts.com/virtualenv
+https://docs.python.org/3/library/venv.html
+https://github.com/mkaz/termgraph/blob/main/data/ex4.dat
+https://docs.python.org/3/library/os.html
+https://pypi.org/project/beautifulsoup4/
+https://pypi.org/project/pytest/
+https://stackoverflow.com/questions/7225900/how-can-i-install-packages-using-pip-according-to-the-requirements-txt-file-from
+https://janakiev.com/blog/python-shell-commands/
+https://www.dummies.com/programming/python/how-to-delete-a-file-in-python/
+https://stackoverflow.com/questions/1855095/how-to-create-a-zip-archive-of-a-directory-in-python
