@@ -21,3 +21,4 @@ https://stackoverflow.com/questions/1855095/how-to-create-a-zip-archive-of-a-dir
 https://overcoder.net/q/388553
 https://egorovegor.ru/python-beautifulsoup-scraping/
 https://pythonworld.ru/moduli/modul-json.html
+https://python-scripts.com/sleep
