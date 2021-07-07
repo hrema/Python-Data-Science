@@ -6,7 +6,7 @@ def	print_company_and_price(company, COMPANIES, STOCKS):
 
 	ticker = COMPANIES_lower_key[company_lower]
 	for c in COMPANIES.keys():
-		if (c.lower() == company_lower):
+		if c.lower() == company_lower:
 			good_company = c
 			break
 
@@ -18,12 +18,12 @@ def print_ticker_and_company(ticker, COMPANIES):
 	ticker_lower = ticker.lower()
 
 	for key, v in COMPANIES.items():
-		if (v.lower() == ticker_lower):
+		if v.lower() == ticker_lower:
 			good_ticker = v
 			company = key
 			break
 
-	print(good_ticker, "is a ticker symbol for", company)
+	print(good_ticker, 'is a ticker symbol for', company)
 
 
 def	print_info(name):
@@ -43,16 +43,16 @@ def	print_info(name):
 		'NOK': 3.37
 		}
 	
-	if (name.lower() in map(lambda x: x.lower(), COMPANIES.keys())):
+	if name.lower() in map(lambda x: x.lower(), COMPANIES.keys()):
 		print_company_and_price(name, COMPANIES, STOCKS)
-	elif (name.lower() in map(lambda x: x.lower(), COMPANIES.values())):
+	elif name.lower() in map(lambda x: x.lower(), COMPANIES.values()):
 		print_ticker_and_company(name, COMPANIES)
 	else:
-		print(name, "is an unknown company or an unknown ticker symbol")
+		print(name, 'is an unknown company or an unknown ticker symbol')
 
-if __name__ == "__main__":
-	if (len(sys.argv) == 2):
+if __name__ == '__main__':
+	if len(sys.argv) == 2:
 		split_argv = [x.strip() for x in sys.argv[1].split(',')]
-		if "" not in split_argv:
+		if '' not in split_argv:
 			for name in split_argv:
 				print_info(name)
