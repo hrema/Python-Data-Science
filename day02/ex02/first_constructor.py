@@ -18,12 +18,12 @@ class Research:
 
 			return ''.join(lines)
 		except Exception:
-			return("Wrong struct to file")
+			return('Wrong struct to file')
 
 
-if __name__ == "__main__":
-	if (len(sys.argv) != 2):
-		raise RuntimeError("Wrong number of arguments")
+if __name__ == '__main__':
+	if len(sys.argv) != 2:
+		raise RuntimeError('Wrong number of arguments')
 	
 	file_path = sys.argv[1]
 	r = Research(file_path)
