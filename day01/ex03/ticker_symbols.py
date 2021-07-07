@@ -21,7 +21,7 @@ def	print_name_and_price(ticker):
 	ticker_lower = ticker.lower()
 
 	if (ticker_lower not in STOCKS_lower_key.keys()):
-		print("Unknown ticker")
+		print('Unknown ticker')
 		return
 	else:
 		price = STOCKS_lower_key[ticker_lower]
@@ -35,6 +35,6 @@ def	print_name_and_price(ticker):
 	print(company, price)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	if (len(sys.argv) == 2):
 		price = print_name_and_price(sys.argv[1])
