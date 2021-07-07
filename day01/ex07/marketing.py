@@ -8,7 +8,7 @@ def call_center(clients_list, recipients_list):
 	required_set = clients_set - recipients_set
 	required_list = list(required_set)
 	
-	return (required_list)
+	return required_list
 
 
 def potential_clients(clients_list, participants_list):
@@ -18,7 +18,7 @@ def potential_clients(clients_list, participants_list):
 	required_set = participants_set - clients_set
 	required_list = list(required_set)
 	
-	return (required_list)
+	return required_list
 
 
 def loyalty_program(clients_list, participants_list):
@@ -28,7 +28,7 @@ def loyalty_program(clients_list, participants_list):
 	required_set = clients_set - participants_set
 	required_list = list(required_set)
 	
-	return (required_list)
+	return required_list
 
 
 if __name__ == '__main__':

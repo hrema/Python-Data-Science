@@ -15,7 +15,7 @@ class Research:
 				raise Exception
 			
 			res = []
-			if (has_header):
+			if has_header:
 				lines_without_header = lines[1:]
 			else:
 				lines_without_header = lines
@@ -28,10 +28,10 @@ class Research:
 				line_split = [int(x) for x in line_split]
 				res.append(line_split)
 			
-			return (res)
+			return res
 
 		except Exception:
-			return("Wrong struct to file")
+			return('Wrong struct to file')
 
 	class Calculations:
 		def __init__(self, data):
@@ -59,19 +59,19 @@ class Research:
 			predictions = []
 			for i in range(0, pred):
 				num = randint(0, 1)
-				if (num == 1):
+				if num == 1:
 					predictions.append([1, 0])
 				else:
 					predictions.append([0, 1])
 				
-			return(predictions)
+			return predictions
 
 		def pred_last(self, data):
-			return (data[-1])
+			return data[-1]
 
 		def save_file(self, data, name, format):
 			try:
-				with open(f"{name}.{format}", "w") as f:
+				with open(f'{name}.{format}', 'w') as f:
 					f.write(data)
 			except:
-				raise RuntimeError("Wrong path of file")
+				raise RuntimeError('Wrong path of file')

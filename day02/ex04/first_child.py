@@ -15,7 +15,7 @@ class Research:
 				raise Exception
 			
 			res = []
-			if (has_header):
+			if has_header:
 				lines_without_header = lines[1:]
 			else:
 				lines_without_header = lines
@@ -28,7 +28,7 @@ class Research:
 				line_split = [int(x) for x in line_split]
 				res.append(line_split)
 			
-			return (res)
+			return res
 
 		except Exception:
 			return('Wrong struct to file')
@@ -64,10 +64,10 @@ class Research:
 				else:
 					predictions.append([0, 1])
 				
-			return(predictions)
+			return predictions
 
 		def pred_last(self, data):
-			return (data[-1])
+			return data[-1]
 
 if __name__ == '__main__':
 	if len(sys.argv) != 2:

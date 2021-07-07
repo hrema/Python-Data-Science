@@ -18,7 +18,7 @@ class Research:
 
 			return ''.join(lines)
 		except Exception:
-			return('Wrong struct to file')
+			return'Wrong struct to file'
 
 
 if __name__ == '__main__':

@@ -2,9 +2,10 @@ import sys
 import config
 import analytics
 
-if __name__ == "__main__":
-	if (len(sys.argv) != 2):
-		raise RuntimeError("Wrong number of arguments")
+
+if __name__ == '__main__':
+	if len(sys.argv) != 2:
+		raise RuntimeError('Wrong number of arguments')
 	
 	file_path = sys.argv[1]
 

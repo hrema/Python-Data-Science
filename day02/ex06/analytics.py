@@ -5,7 +5,9 @@ import os
 import json
 import urllib.request
 
-logging.basicConfig(filename="analytics.log", filemode="w", format="%(asctime)s %(message)s", level=logging.DEBUG)
+
+logging.basicConfig(filename='analytics.log', filemode='w', format='%(asctime)s %(message)s', level=logging.DEBUG)
+
 
 class Research:
 	def __init__(self, file_path):
@@ -21,7 +23,7 @@ class Research:
 				raise Exception
 			
 			res = []
-			if (has_header):
+			if has_header:
 				lines_without_header = lines[1:]
 			else:
 				lines_without_header = lines
@@ -34,19 +36,19 @@ class Research:
 				line_split = [int(x) for x in line_split]
 				res.append(line_split)
 			
-			return (res)
+			return res
 
 		except Exception:
 			logging.debug('Research.file_reader(): failed readed file')
-			return("Wrong struct to file")
+			return('Wrong struct to file')
 
 	def	send_message_to_slack(self):
 		webhook_url = 'https://hooks.slack.com/services/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'
 		
-		if not os.path.isfile("/Users/hrema/Desktop/Python-Data-Science/day02/ex06/analytics.log"):
-			msg = "The report was not created due to an error."
+		if not os.path.isfile('/Users/hrema/Desktop/Python-Data-Science/day02/ex06/analytics.log'):
+			msg = 'The report was not created due to an error.'
 		else:
-			msg = "The report was created successfully"
+			msg = 'The report was created successfully'
 		
 		slack_data = {'text': msg}
 		data = json.dumps(slack_data)
@@ -85,7 +87,7 @@ class Research:
 			predictions = []
 			for i in range(0, pred):
 				num = randint(0, 1)
-				if (num == 1):
+				if num == 1:
 					predictions.append([1, 0])
 				else:
 					predictions.append([0, 1])
@@ -94,13 +96,13 @@ class Research:
 
 		def pred_last(self, data):
 			logging.debug('Analytics.pred_last(): return last elements')
-			return (data[-1])
+			return data[-1]
 
 		def save_file(self, data, name, format):
 			try:
-				with open(f"{name}.{format}", "w") as f:
+				with open(f'{name}.{format}', 'w') as f:
 					f.write(data)
 					logging.debug('Analytics.save_file(): succes writed file')
 			except:
 				logging.debug('Analytics.save_file(): failed writed file')
-				raise RuntimeError("Wrong path to file")
+				raise RuntimeError('Wrong path to file')

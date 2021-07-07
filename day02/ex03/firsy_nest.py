@@ -14,7 +14,7 @@ class Research:
 				raise Exception
 			
 			res = []
-			if (has_header):
+			if has_header:
 				lines_without_header = lines[1:]
 			else:
 				lines_without_header = lines
@@ -27,10 +27,10 @@ class Research:
 				line_split = [int(x) for x in line_split]
 				res.append(line_split)
 			
-			return (res)
+			return res
 
 		except Exception:
-			return('Wrong struct to file')
+			return 'Wrong struct to file'
 
 	class Calculations:
 		def counts(self, list_of_lists):
