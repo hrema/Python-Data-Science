@@ -30,11 +30,11 @@ def	convert_list_to_map():
 			dict_tuples[t[1]].append(t[0])
 	
 	for key, v in dict_tuples.items():
-		if (len(v) > 1):
+		if len(v) > 1:
 			for i in v:
-				print(key, ":", i)
+				print(key, ':', i)
 		else:
-			print(key, ":", v[0])
+			print(key, ':', v[0])
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	convert_list_to_map()
