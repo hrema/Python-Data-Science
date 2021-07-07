@@ -30,7 +30,7 @@ class Research:
 			return (res)
 
 		except Exception:
-			return("Wrong struct to file")
+			return('Wrong struct to file')
 
 	class Calculations:
 		def counts(self, list_of_lists):
@@ -51,9 +51,9 @@ class Research:
 			return (head_percent, tail_percent)
 
 
-if __name__ == "__main__":
-	if (len(sys.argv) != 2):
-		raise RuntimeError("Wrong number of arguments")
+if __name__ == '__main__':
+	if len(sys.argv) != 2:
+		raise RuntimeError('Wrong number of arguments')
 	
 	file_path = sys.argv[1]
 
