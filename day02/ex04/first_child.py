@@ -31,7 +31,7 @@ class Research:
 			return (res)
 
 		except Exception:
-			return("Wrong struct to file")
+			return('Wrong struct to file')
 
 	class Calculations:
 		def __init__(self, data):
@@ -59,7 +59,7 @@ class Research:
 			predictions = []
 			for i in range(0, pred):
 				num = randint(0, 1)
-				if (num == 1):
+				if num == 1:
 					predictions.append([1, 0])
 				else:
 					predictions.append([0, 1])
@@ -69,9 +69,9 @@ class Research:
 		def pred_last(self, data):
 			return (data[-1])
 
-if __name__ == "__main__":
-	if (len(sys.argv) != 2):
-		raise RuntimeError("Wrong number of arguments")
+if __name__ == '__main__':
+	if len(sys.argv) != 2:
+		raise RuntimeError('Wrong number of arguments')
 	
 	file_path = sys.argv[1]
 
