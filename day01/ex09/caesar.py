@@ -31,21 +31,21 @@ def	is_ascii(s):
 	return all(ord(c) < 128 for c in s)
 
 
-if __name__ == "__main__":
-	if (len(sys.argv) != 4):
-		raise RuntimeError("Wrong number of arguments")
+if __name__ == '__main__':
+	if len(sys.argv) != 4:
+		raise RuntimeError('Wrong number of arguments')
 	
 	task = sys.argv[1]
 	string = sys.argv[2]
 	shift = int(sys.argv[3])
 	
-	if not (task == "encode" or task == "decode"):
-		raise RuntimeError("Wrong task")
-	if (is_ascii(string) == False):
-		raise RuntimeError("String is not ascii")
+	if not (task == 'encode' or task == 'decode'):
+		raise RuntimeError('Wrong task')
+	if is_ascii(string) == False:
+		raise RuntimeError('String is not ascii')
 
 	caesar_list = []
-	if (task == "encode"):
+	if (task == 'encode'):
 		for c in string:
 			new_c = decode_symbol(c, shift)
 			caesar_list.append(new_c)
