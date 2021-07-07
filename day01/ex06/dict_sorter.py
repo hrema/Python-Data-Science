@@ -29,5 +29,5 @@ def	sort_dict():
 		print(k)
 	
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	sort_dict()
