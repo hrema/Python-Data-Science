@@ -36,5 +36,5 @@ def	print_name_and_price(ticker):
 
 
 if __name__ == '__main__':
-	if (len(sys.argv) == 2):
+	if len(sys.argv) == 2:
 		price = print_name_and_price(sys.argv[1])
