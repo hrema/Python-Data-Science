@@ -1,4 +1,4 @@
-#!/Users/hrema/Desktop/test/ex00/hrema/bin/python3
+#!/Users/hrema/Desktop/Python-Data-Science/day03/ex00/hrema/bin/python
 
 from bs4 import BeautifulSoup
 import sys
@@ -40,7 +40,7 @@ def str_to_camel_style(string):
 	return field_camel
 
 
-def	get_price(field, period, quarter=0):
+def	get_price(quote_time_series_store, field, period, quarter=0):
 	'''
 	The function takes a table field, formats it camel style.
 	Finds the price of this field in a quarter, formats the price, and returns its string representation.
@@ -75,7 +75,7 @@ def	get_price(field, period, quarter=0):
 
 if __name__ == '__main__':
 	if len(sys.argv) != 3:
-		raise RuntimeError('Wrong numbre of arguments')
+		raise RuntimeError('Wrong number of arguments')
 	
 	ticker = sys.argv[1]
 	field = sys.argv[2]
@@ -111,9 +111,9 @@ if __name__ == '__main__':
 
 	list_field = []
 	list_field.append(field)
-	list_field.append(get_price(field, 'trailing'))
+	list_field.append(get_price(quote_time_series_store, field, 'trailing'))
 	for i in range(3, -1, -1):
-		list_field.append(get_price(field, 'annual', i))
+		list_field.append(get_price(quote_time_series_store, field, 'annual', i))
 	print(tuple(list_field))
 	
 	# os.remove(f'{ticker}.html')

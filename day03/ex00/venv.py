@@ -1,4 +1,4 @@
-#!/Users/hrema/.brew/bin/python3
+#!/Users/hrema/Desktop/Python-Data-Science/day03/ex00/hrema/bin/python
 
 import os
 

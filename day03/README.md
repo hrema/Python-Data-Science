@@ -22,3 +22,8 @@ https://overcoder.net/q/388553
 https://egorovegor.ru/python-beautifulsoup-scraping/
 https://pythonworld.ru/moduli/modul-json.html
 https://python-scripts.com/sleep
+https://python-scripts.com/cprofile-code-profiling
+https://overcoder.net/q/6115/
+https://docs.python.org/3/library/http.client.html#http.client.HTTPResponse
+https://webformyself.com/python-urllib-request-i-urlopen/
+https://docs.python.org/3/library/profile.html
