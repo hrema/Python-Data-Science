@@ -8,6 +8,8 @@ ex02: Нужно написать скрипт, который скачает д
 
 ex03: Нужно написать Python скрипт, который в качестве аргумента принимает тикер акции компании и поле таблицы Financials (Income Statement). Скрипт возвращает данные переданного поля (по годам).
 
+ex04: Работа с профайлингом программы с помощью cProfile и pstats.
+
 # Использованные ресурсы:
 https://docs.python.org/3/library/venv.html
 https://github.com/mkaz/termgraph/blob/main/data/ex4.dat
