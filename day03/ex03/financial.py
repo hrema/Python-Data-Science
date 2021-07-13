@@ -11,7 +11,7 @@ import time
 
 def price_formatting(price):
 	'''
-	Accepts a float or int price, formats it, and returns the price converted to string.
+	Takes a float or int price, formats it, and returns the price converted to string.
 	'''
 
 	sign = 1
@@ -31,7 +31,7 @@ def price_formatting(price):
 
 def str_to_camel_style(string):
 	'''
-	Convert string to camel styles. "Hello World" -> "helloWorld"
+	Convert string to camel styles. "Hello World" -> "HelloWorld"
 	'''
 
 	field_camel = string.split(' ')
@@ -56,8 +56,10 @@ def	get_price(quote_time_series_store, field, period, quarter=0):
 	price = quote_time_series_store.get(period + field_camel)
 	if price is None:
 		return '-'
-	if period == 'trailing' and quarter != 0:
-		raise RuntimeError('Wrong quarter')
+
+	assert period == 'trailing' and quarter != 0
+	# if period == 'trailing' and quarter != 0:
+	# 	raise RuntimeError('Wrong quarter')
 
 	if len(price) > 0:
 		if price[quarter] is None:
