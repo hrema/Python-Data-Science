@@ -20,6 +20,8 @@ profiling-ncalls.txt содержит результат профилирова�
 
 pstats-cumulative.txt содержит результат работы скрипта pstats_script.py.
 
+ex05: Требуется провести модульное тестирование ex03/financial.py
+
 # Использованные ресурсы:
 https://docs.python.org/3/library/venv.html
 https://github.com/mkaz/termgraph/blob/main/data/ex4.dat
@@ -39,3 +41,5 @@ https://overcoder.net/q/6115/
 https://docs.python.org/3/library/http.client.html#http.client.HTTPResponse
 https://webformyself.com/python-urllib-request-i-urlopen/
 https://docs.python.org/3/library/profile.html
+https://progi.pro/kak-importirovat-modul-iz-drugoy-papki-v-python-4937122
+https://coderlessons.com/tutorials/python-technologies/uznaite-pytest/pytest-kratkoe-rukovodstvo

@@ -57,9 +57,8 @@ def	get_price(quote_time_series_store, field, period, quarter=0):
 	if price is None:
 		return '-'
 
-	assert period == 'trailing' and quarter != 0
-	# if period == 'trailing' and quarter != 0:
-	# 	raise RuntimeError('Wrong quarter')
+	if period == 'trailing' and quarter != 0:
+		raise RuntimeError('Wrong quarter')
 
 	if len(price) > 0:
 		if price[quarter] is None:
@@ -73,6 +72,15 @@ def	get_price(quote_time_series_store, field, period, quarter=0):
 	
 	price = price_formatting(price)
 	return price
+
+
+def create_tuple_field(quote_time_series_store, field):
+	list_field = []
+	list_field.append(field)
+	list_field.append(get_price(quote_time_series_store, field, 'trailing'))
+	for i in range(3, -1, -1):
+		list_field.append(get_price(quote_time_series_store, field, 'annual', i))
+	return tuple(list_field)
 
 
 if __name__ == '__main__':
@@ -111,12 +119,7 @@ if __name__ == '__main__':
 	# with open(f'{ticker}_quote_time_series_store.json', 'w') as f:
 	# 	print(data, file=f)
 
-	list_field = []
-	list_field.append(field)
-	list_field.append(get_price(quote_time_series_store, field, 'trailing'))
-	for i in range(3, -1, -1):
-		list_field.append(get_price(quote_time_series_store, field, 'annual', i))
-	print(tuple(list_field))
+	print(create_tuple_field(quote_time_series_store, field))
 	
 	# os.remove(f'{ticker}.html')
 	# os.remove(f'{ticker}.json')
