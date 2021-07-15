@@ -29,23 +29,43 @@
 Требуется провести модульное тестирование ex03/financial.py
 
 # Использованные ресурсы:
+
 https://docs.python.org/3/library/venv.html
+
 https://github.com/mkaz/termgraph/blob/main/data/ex4.dat
+
 https://docs.python.org/3/library/os.html
+
 https://pypi.org/project/beautifulsoup4/
+
 https://pypi.org/project/pytest/
+
 https://stackoverflow.com/questions/7225900/how-can-i-install-packages-using-pip-according-to-the-requirements-txt-file-from
+
 https://janakiev.com/blog/python-shell-commands/
+
 https://www.dummies.com/programming/python/how-to-delete-a-file-in-python/
+
 https://stackoverflow.com/questions/1855095/how-to-create-a-zip-archive-of-a-directory-in-python
+
 https://overcoder.net/q/388553
+
 https://egorovegor.ru/python-beautifulsoup-scraping/
+
 https://pythonworld.ru/moduli/modul-json.html
+
 https://python-scripts.com/sleep
+
 https://python-scripts.com/cprofile-code-profiling
+
 https://overcoder.net/q/6115/
+
 https://docs.python.org/3/library/http.client.html#http.client.HTTPResponse
+
 https://webformyself.com/python-urllib-request-i-urlopen/
+
 https://docs.python.org/3/library/profile.html
+
 https://progi.pro/kak-importirovat-modul-iz-drugoy-papki-v-python-4937122
+
 https://coderlessons.com/tutorials/python-technologies/uznaite-pytest/pytest-kratkoe-rukovodstvo
