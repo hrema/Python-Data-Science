@@ -1,9 +1,10 @@
 #!/Users/hrema/.brew/bin/python3
 
 import timeit
+import sys
 
 
-def loop(emails):
+def func_loop(emails):
 	'''
 	The function creates a new list in a loop.
 	New list contain only gmail addresses.
@@ -17,7 +18,7 @@ def loop(emails):
 	return gmail_emails
 
 
-def list_comprehension(emails):
+def func_list_comprehension(emails):
 	'''
 	The function creates a new list using list comprehension.
 	New list contain only gmail addresses.
@@ -36,38 +37,23 @@ def	func_map(emails):
 	'''
 
 	gmail_emails = map(lambda x: x if 'gmail.com' in x else None, emails)
-	return list(gmail_emails)
+	return gmail_emails
+
+
+def	func_filter(emails):
+	gmail_emails = filter(lambda x: x if 'gmail.com' in x else None, emails)
+	return gmail_emails
 
 
 if __name__ == '__main__':
+	if len(sys.argv) != 3:
+		exit(1)
+
 	emails = ['john@gmail.com', 'james@gmail.com', 'alice@yahoo.com', 'anna@live.com', 'philipp@gmail.com'] * 5
-	
-	loop_code = '''loop(emails)'''
-	lc_code = '''list_comprehension(emails)'''
-	lc_func_map = '''func_map(emails)'''
-	count = 90_000_000
-	
-	time = []
-	loop_time = timeit.timeit(loop_code, number=count, globals=globals())
-	time.append(loop_time)
-	lc_time = timeit.timeit(lc_code, number=count, globals=globals())
-	time.append(lc_time)
-	lc_func_map = timeit.timeit(lc_func_map, number=count, globals=globals())
-	time.append(lc_func_map)
 
-	sort_time = sorted(time)
-	min_time = sort_time[0]
+	func = 'func_' + sys.argv[1]
+	count = int(sys.argv[2])
+	str_code = f'''{func}(emails)'''
 
-	if min_time == loop_time:
-		print('it is better to use a loop')
-	elif min_time == lc_time:
-		print('it is better to use a list comprehension')
-	elif min_time == lc_func_map:
-		print('it is better to use a map')
-
-	len_sort_time = len(sort_time)
-	for t in range(len_sort_time):
-		print(sort_time[t], end='')
-		if t + 1 != len_sort_time:
-			print(' vs ', end='')
-	print()
+	time = timeit.timeit(str_code, number=count, globals=globals())
+	print(time)
