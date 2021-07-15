@@ -37,12 +37,12 @@ def	func_map(emails):
 	'''
 
 	gmail_emails = map(lambda x: x if 'gmail.com' in x else None, emails)
-	return gmail_emails
+	return list(gmail_emails)
 
 
 def	func_filter(emails):
 	gmail_emails = filter(lambda x: x if 'gmail.com' in x else None, emails)
-	return gmail_emails
+	return list(gmail_emails)
 
 
 if __name__ == '__main__':
