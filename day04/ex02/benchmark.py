@@ -31,18 +31,24 @@ def func_list_comprehension(emails):
 
 def	func_map(emails):
 	'''
-	The function creates a new list using function map().
-	New list contain only gmail addresses.
-	Function returns new list.
+	The function creates a new iterator using function map().
+	New iterator contain only gmail addresses.
+	Function returns new iterator.
 	'''
 
 	gmail_emails = map(lambda x: x if 'gmail.com' in x else None, emails)
-	return list(gmail_emails)
+	return gmail_emails
 
 
 def	func_filter(emails):
+	'''
+	The function creates a new iterator using function filter().
+	New iterator contain only gmail addresses.
+	Function returns new iterator.
+	'''
+
 	gmail_emails = filter(lambda x: x if 'gmail.com' in x else None, emails)
-	return list(gmail_emails)
+	return gmail_emails
 
 
 if __name__ == '__main__':

@@ -1,6 +1,7 @@
 #!/Users/hrema/.brew/bin/python3
 
 import timeit
+from typing import get_args
 
 
 def loop(emails):
@@ -30,23 +31,23 @@ def list_comprehension(emails):
 
 def	func_map(emails):
 	'''
-	The function creates a new list using function map().
-	New list contain only gmail addresses.
-	Function returns new list.
+	The function creates a new iterator using function map().
+	New iterator contain only gmail addresses.
+	Function returns new iterator.
 	'''
 
 	gmail_emails = map(lambda x: x if 'gmail.com' in x else None, emails)
-	return list(gmail_emails)
-
+	return gmail_emails
+	
 
 if __name__ == '__main__':
 	emails = ['john@gmail.com', 'james@gmail.com', 'alice@yahoo.com', 'anna@live.com', 'philipp@gmail.com'] * 5
-	
+
 	loop_code = '''loop(emails)'''
 	lc_code = '''list_comprehension(emails)'''
 	lc_func_map = '''func_map(emails)'''
 	count = 90_000_000
-	
+
 	time = []
 	loop_time = timeit.timeit(loop_code, number=count, globals=globals())
 	time.append(loop_time)
