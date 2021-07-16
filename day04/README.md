@@ -9,6 +9,9 @@
 ## ex02:
 Требуется в скрипт из ex01 добавить функцию, которая будет создавать итератор с помощью функции filter(), и сделать рефакторинг кода. Теперь скрипт принимает функцию и кол-во ее вызовов.
 
+## ex03:
+Требуется написать скрипт, который принимает имя функции, кол-во ее вызовов и число, до которого (включительно) необходимо найти сумму квадратов чисел. Скрипт выводит время выполнения функции, вызванной переданное кол-во раз. Сумма вычисляется двумя способами: цикл и функция reduce().
+
 # Использованные ресурсы
 
 https://webdevblog.ru/kogda-ispolzovat-list-comprehension-v-python/
@@ -16,3 +19,5 @@ https://webdevblog.ru/kogda-ispolzovat-list-comprehension-v-python/
 https://stackoverflow.com/questions/5086430/how-to-pass-parameters-of-a-function-when-using-timeit-timer
 
 https://www.digitalocean.com/community/tutorials/how-to-use-the-python-filter-function-ru
+
+https://docs.python.org/3/library/functools.html

@@ -7,14 +7,15 @@ from functools import reduce
 def	func_loop(number):
 	summa = 0
 
-	for i in range(number + 1):
+	for i in range(1, number + 1):
 		summa = summa + i * i
 	return summa
 
 
 def func_reduce(number):
-	square_list = [i * i for i in range(number + 1)]
-	return (reduce(lambda x_prev, x: x_prev + x, square_list))
+	summa = reduce(lambda x_prev, x: x_prev + x * x, range(1, number + 1), 0)
+	return summa
+
 
 if __name__ == '__main__':
 	if len(sys.argv) != 4:

@@ -47,7 +47,7 @@ def	func_filter(emails):
 	Function returns new iterator.
 	'''
 
-	gmail_emails = filter(lambda x: x if 'gmail.com' in x else None, emails)
+	gmail_emails = filter(lambda x: 'gmail.com' in x, emails)
 	return gmail_emails
 
 
