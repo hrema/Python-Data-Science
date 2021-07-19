@@ -15,6 +15,9 @@
 ## ex04:
 Требуется написать скрипт, который создает массив из 1_000_000 рандомных чисел от 0 до 100 и сравнивает скорость выполнения моей реализации Counter с collections.Counter()
 
+## ex05:
+Требуется написать два скрипта, один считывает строки файла в массив и циклом проходит через все элементы массива, второй создает генератор, который возвращает каждую строку и в цикле проходит по генератору. Необходимо сравнить использование памяти и затраченного времени на скрипты.
+
 # Использованные ресурсы
 
 https://webdevblog.ru/kogda-ispolzovat-list-comprehension-v-python/
@@ -24,3 +27,11 @@ https://stackoverflow.com/questions/5086430/how-to-pass-parameters-of-a-function
 https://www.digitalocean.com/community/tutorials/how-to-use-the-python-filter-function-ru
 
 https://docs.python.org/3/library/functools.html
+
+https://pythonworld.ru/moduli/modul-collections.html
+
+https://webdevblog.ru/vvedenie-v-generatory-python/
+
+https://overcoder.net/q/34286/%D0%BA%D0%B0%D0%BA-%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C-%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B5%D0%B5-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0-%D0%B8-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D0%B9-%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%B8-%D0%B2-python
+
+https://psutil.readthedocs.io/en/latest/#processes
