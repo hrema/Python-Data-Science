@@ -1,4 +1,4 @@
-def	convert_list_to_map():
+def convert_list_to_map():
 	list_of_tuples = [
 		('Russia', '25'),
 		('France', '132'),
@@ -35,6 +35,7 @@ def	convert_list_to_map():
 				print(key, ':', i)
 		else:
 			print(key, ':', v[0])
+
 
 if __name__ == '__main__':
 	convert_list_to_map()

@@ -1,6 +1,7 @@
 import sys
 
-def	print_price_company(company):
+
+def print_price_company(company):
 	COMPANIES = {
 		'Apple': 'AAPL',
 		'Microsoft': 'MSFT',
@@ -25,6 +26,7 @@ def	print_price_company(company):
 	else:
 		ticker = COMPANIES_lower_key[company_lower]
 		print(STOCKS[ticker])
+
 
 if __name__ == '__main__':
 	if len(sys.argv) == 2:

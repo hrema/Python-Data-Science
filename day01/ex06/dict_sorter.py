@@ -1,4 +1,4 @@
-def	sort_dict():
+def sort_dict():
 	list_of_tuples = [
 		('Russia', '25'),
 		('France', '132'),

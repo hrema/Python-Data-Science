@@ -20,9 +20,9 @@ if __name__ == '__main__':
 			desired_name = info[0]
 			break
 	
-	if (desired_name == ''):
+	if desired_name == '':
 		print('No such this e-mail')
 	else:
 		print(f'Dear {desired_name}, welcome to our team. '
-				'We are sure that it will be a pleasure to work with you. '
-				'That’s a precondition for the professionals that our company hires.')
+								'We are sure that it will be a pleasure to work with you. '
+								'That’s a precondition for the professionals that our company hires.')

@@ -5,7 +5,7 @@ if __name__ == '__main__':
 	for line in range(0, len(lines)):
 		tmp = lines[line].split('"')
 		for i in range(0, len(tmp)):
-			if (i != 5): # пропуск стобца name
+			if 1 != 5:  # пропуск столбца name
 				tmp[i] = tmp[i].replace(',', '\t')
 		lines[line] = ''.join(tmp)
 

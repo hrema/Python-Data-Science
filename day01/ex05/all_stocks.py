@@ -1,9 +1,11 @@
 import sys
 
-def	print_company_and_price(company, COMPANIES, STOCKS):
+
+def print_company_and_price(company, COMPANIES, STOCKS):
 	COMPANIES_lower_key = {k.lower(): v for k, v in COMPANIES.items()}
 	company_lower = company.lower()
 
+	good_company = ''
 	ticker = COMPANIES_lower_key[company_lower]
 	for c in COMPANIES.keys():
 		if c.lower() == company_lower:
@@ -14,9 +16,11 @@ def	print_company_and_price(company, COMPANIES, STOCKS):
 
 
 def print_ticker_and_company(ticker, COMPANIES):
-	COMPANIES_lower_key = {key.lower(): v for key, v in COMPANIES.items()}
+	# COMPANIES_lower_key = {key.lower(): v for key, v in COMPANIES.items()}
 	ticker_lower = ticker.lower()
 
+	good_ticker = ''
+	company = ''
 	for key, v in COMPANIES.items():
 		if v.lower() == ticker_lower:
 			good_ticker = v
@@ -26,7 +30,7 @@ def print_ticker_and_company(ticker, COMPANIES):
 	print(good_ticker, 'is a ticker symbol for', company)
 
 
-def	print_info(name):
+def print_info(name_company):
 	COMPANIES = {
 		'Apple': 'AAPL',
 		'Microsoft': 'MSFT',
@@ -43,12 +47,13 @@ def	print_info(name):
 		'NOK': 3.37
 		}
 	
-	if name.lower() in map(lambda x: x.lower(), COMPANIES.keys()):
-		print_company_and_price(name, COMPANIES, STOCKS)
-	elif name.lower() in map(lambda x: x.lower(), COMPANIES.values()):
-		print_ticker_and_company(name, COMPANIES)
+	if name_company.lower() in map(lambda x: x.lower(), COMPANIES.keys()):
+		print_company_and_price(name_company, COMPANIES, STOCKS)
+	elif name_company.lower() in map(lambda x: x.lower(), COMPANIES.values()):
+		print_ticker_and_company(name_company, COMPANIES)
 	else:
-		print(name, 'is an unknown company or an unknown ticker symbol')
+		print(name_company, 'is an unknown company or an unknown ticker symbol')
+
 
 if __name__ == '__main__':
 	if len(sys.argv) == 2:
