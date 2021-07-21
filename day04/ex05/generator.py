@@ -18,7 +18,7 @@ if __name__ == '__main__':
 	
 	gen = read_file(sys.argv[1])
 
-	for line in gen:
+	for g in gen:
 		pass
 
 	process = psutil.Process(os.getpid())

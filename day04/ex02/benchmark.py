@@ -4,50 +4,50 @@ import timeit
 import sys
 
 
-def func_loop(emails):
-	'''
+def func_loop(emails_list):
+	"""
 	The function creates a new list in a loop.
 	New list contain only gmail addresses.
 	Function returns new list.
-	'''
+	"""
 	
 	gmail_emails = []
-	for i in emails:
+	for i in emails_list:
 		if 'gmail.com' in i:
 			gmail_emails.append(i)
 	return gmail_emails
 
 
-def func_list_comprehension(emails):
-	'''
+def func_list_comprehension(emails_list):
+	"""
 	The function creates a new list using list comprehension.
 	New list contain only gmail addresses.
 	Function returns new list.
-	'''
+	"""
 
-	gmail_emails = [i for i in emails if 'gmail.com' in i]
+	gmail_emails = [i for i in emails_list if 'gmail.com' in i]
 	return gmail_emails
 
 
-def	func_map(emails):
-	'''
+def func_map(emails_list):
+	"""
 	The function creates a new iterator using function map().
 	New iterator contain only gmail addresses.
 	Function returns new iterator.
-	'''
+	"""
 
-	gmail_emails = map(lambda x: x if 'gmail.com' in x else None, emails)
+	gmail_emails = map(lambda x: x if 'gmail.com' in x else None, emails_list)
 	return gmail_emails
 
 
-def	func_filter(emails):
-	'''
+def func_filter(emails_list):
+	"""
 	The function creates a new iterator using function filter().
 	New iterator contain only gmail addresses.
 	Function returns new iterator.
-	'''
+	"""
 
-	gmail_emails = filter(lambda x: 'gmail.com' in x, emails)
+	gmail_emails = filter(lambda x: 'gmail.com' in x, emails_list)
 	return gmail_emails
 
 

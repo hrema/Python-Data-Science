@@ -7,9 +7,9 @@ import os
 
 def read_file(filename):
 	with open(filename) as f:
-		lines = f.readlines()
+		lines_from_f = f.readlines()
 	
-	return lines
+	return lines_from_f
 
 
 if __name__ == '__main__':

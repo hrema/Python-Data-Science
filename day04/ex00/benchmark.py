@@ -3,24 +3,24 @@
 import timeit
 
 
-def loop(emails):
-	'''
+def loop(emails_list):
+	"""
 	The function creates a new list in a loop with only gmail addresses and returns this list.
-	'''
+	"""
 	
 	gmail_emails = []
-	for i in emails:
+	for i in emails_list:
 		if 'gmail.com' in i:
 			gmail_emails.append(i)
 	return gmail_emails
 
 
-def list_comprehension(emails):
-	'''
+def list_comprehension(emails_list):
+	"""
 	The function creates a new list using list comprehension only gmail addresses and returns this list.
-	'''
+	"""
 
-	gmail_emails = [i for i in emails if 'gmail.com' in i]
+	gmail_emails = [i for i in emails_list if 'gmail.com' in i]
 	return gmail_emails
 
 
