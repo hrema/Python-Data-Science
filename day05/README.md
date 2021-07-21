@@ -41,3 +41,5 @@ https://pandas.pydata.org/docs/index.html
 https://www.codegrepper.com/code-examples/python/extract+month+from+datetime+pandas
 
 https://stackoverflow.com/questions/45751390/pandas-how-to-use-pd-cut
+
+https://www.geeksforgeeks.org/split-a-text-column-into-two-columns-in-pandas-dataframe/
