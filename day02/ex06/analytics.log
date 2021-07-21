@@ -1,9 +1,9 @@
-2021-07-01 22:20:17,639 Research.__init__(): succes created object
-2021-07-01 22:20:17,640 Research.file_reader(): succes readed file
-2021-07-01 22:20:17,640 Calculations.__init__(): succes created object
+2021-07-01 22:20:17,639 Research.__init__(): success created object
+2021-07-01 22:20:17,640 Research.file_reader(): success readed file
+2021-07-01 22:20:17,640 Calculations.__init__(): success created object
 2021-07-01 22:20:17,640 Calculations.counts(): calculating the counts of heads and tails
 2021-07-01 22:20:17,640 Calculations.fractions(): calculating the percentage of heads and tails
-2021-07-01 22:20:17,640 Calculations.__init__(): succes created object
+2021-07-01 22:20:17,640 Calculations.__init__(): success created object
 2021-07-01 22:20:17,640 Analytics.pred_random(): predicting heads and tails
-2021-07-01 22:20:17,640 Calculations.__init__(): succes created object
+2021-07-01 22:20:17,640 Calculations.__init__(): success created object
 2021-07-01 22:20:17,640 Calculations.counts(): calculating the counts of heads and tails

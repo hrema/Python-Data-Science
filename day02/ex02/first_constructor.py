@@ -2,8 +2,8 @@ import sys
 
 
 class Research:
-	def __init__(self, file_path):
-		self.file_path = file_path
+	def __init__(self, path_to_the_file):
+		self.file_path = path_to_the_file
 	
 	def file_reader(self):
 		try:

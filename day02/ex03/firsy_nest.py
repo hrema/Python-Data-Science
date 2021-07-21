@@ -2,8 +2,8 @@ import sys
 
 
 class Research:
-	def __init__(self, file_path):
-		self.file_path = file_path
+	def __init__(self, path_to_the_file):
+		self.file_path = path_to_the_file
 	
 	def file_reader(self, has_header=True):
 		try:
@@ -36,19 +36,19 @@ class Research:
 		def counts(self, list_of_lists):
 			head = 0
 			tail = 0
-			for list in list_of_lists:
-				if list[0] == 1:
+			for el in list_of_lists:
+				if el[0] == 1:
 					head += 1
 				else:
 					tail += 1
 			
-			return (head, tail)
+			return head, tail
 		
 		def fractions(self, head_and_tail):
 			summa = head_and_tail[0] + head_and_tail[1]
 			head_percent = (head_and_tail[0] / summa) * 100
 			tail_percent = (head_and_tail[1] / summa) * 100
-			return (head_percent, tail_percent)
+			return head_percent, tail_percent
 
 
 if __name__ == '__main__':

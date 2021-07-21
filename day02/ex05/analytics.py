@@ -1,4 +1,3 @@
-import sys
 from random import randint
 
 
@@ -31,7 +30,7 @@ class Research:
 			return res
 
 		except Exception:
-			return('Wrong struct to file')
+			return 'Wrong struct to file'
 
 	class Calculations:
 		def __init__(self, data):
@@ -40,22 +39,22 @@ class Research:
 		def counts(self):
 			head = 0
 			tail = 0
-			for list in self.data:
-				if list[0] == 1:
+			for el in self.data:
+				if el[0] == 1:
 					head += 1
 				else:
 					tail += 1
 			
-			return (head, tail)
+			return head, tail
 		
 		def fractions(self, head_and_tail):
 			summa = head_and_tail[0] + head_and_tail[1]
 			head_percent = (head_and_tail[0] / summa) * 100
 			tail_percent = (head_and_tail[1] / summa) * 100
-			return (head_percent, tail_percent)
+			return head_percent, tail_percent
 
 	class Analytics(Calculations):
-		def	pred_random(self, pred):
+		def pred_random(self, pred):
 			predictions = []
 			for i in range(0, pred):
 				num = randint(0, 1)
@@ -69,9 +68,9 @@ class Research:
 		def pred_last(self, data):
 			return data[-1]
 
-		def save_file(self, data, name, format):
+		def save_file(self, data, name, form):
 			try:
-				with open(f'{name}.{format}', 'w') as f:
+				with open(f'{name}.{form}', 'w') as f:
 					f.write(data)
-			except:
+			except Exception:
 				raise RuntimeError('Wrong path of file')
