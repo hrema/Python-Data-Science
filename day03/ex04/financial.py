@@ -3,16 +3,14 @@
 from bs4 import BeautifulSoup
 import sys
 import requests
-import os
 import re
 import json
-import time
 
 
 def price_formatting(price):
-	'''
+	"""
 	Accepts a float or int price, formats it, and returns the price converted to string.
-	'''
+	"""
 
 	sign = 1
 	if price < 0:
@@ -30,9 +28,9 @@ def price_formatting(price):
 
 
 def str_to_camel_style(string):
-	'''
+	"""
 	Convert string to camel styles. "Hello World" -> "helloWorld"
-	'''
+	"""
 
 	field_camel = string.split(' ')
 	field_camel = [x.replace(x[0], x[0].upper()) for x in field_camel]
@@ -40,11 +38,11 @@ def str_to_camel_style(string):
 	return field_camel
 
 
-def	get_price(quote_time_series_store, field, period, quarter=0):
-	'''
+def get_price(quote_time_series_store, field, period, quarter=0):
+	"""
 	The function takes a table field, formats it camel style.
 	Finds the price of this field in a quarter, formats the price, and returns its string representation.
-	'''
+	"""
 
 	if 'Available to' in field:
 		field = field.replace('Available to', 'Availto', 1)
@@ -68,7 +66,7 @@ def	get_price(quote_time_series_store, field, period, quarter=0):
 
 	if 'EPS' in field_camel:
 		return f'{price:.2f}'
-	
+
 	price = price_formatting(price)
 	return price
 
@@ -76,7 +74,7 @@ def	get_price(quote_time_series_store, field, period, quarter=0):
 def main(argv):
 	if len(sys.argv) != 3:
 		raise RuntimeError('Wrong number of arguments')
-	
+
 	ticker = argv[1]
 	field = argv[2]
 	url = f'https://finance.yahoo.com/quote/{ticker}/financials?p={ticker}'
@@ -109,13 +107,13 @@ def main(argv):
 	# with open(f'{ticker}_quote_time_series_store.json', 'w') as f:
 	# 	print(data, file=f)
 
-	list_field = []
+	list_field = list()
 	list_field.append(field)
 	list_field.append(get_price(quote_time_series_store, field, 'trailing'))
 	for i in range(3, -1, -1):
 		list_field.append(get_price(quote_time_series_store, field, 'annual', i))
 	print(tuple(list_field))
-	
+
 	# os.remove(f'{ticker}.html')
 	# os.remove(f'{ticker}.json')
 	# os.remove(f'{ticker}_quote_time_series_store.json')

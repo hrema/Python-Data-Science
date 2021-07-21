@@ -6,16 +6,14 @@
 from bs4 import BeautifulSoup
 import sys
 import requests
-import os
 import re
 import json
-import time
 
 
 def price_formatting(price):
-	'''
+	"""
 	Takes a float or int price, formats it, and returns the price converted to string.
-	'''
+	"""
 
 	sign = 1
 	if price < 0:
@@ -33,9 +31,9 @@ def price_formatting(price):
 
 
 def str_to_camel_style(string):
-	'''
+	"""
 	Convert string to camel styles. "Hello World" -> "HelloWorld"
-	'''
+	"""
 
 	field_camel = string.split(' ')
 	field_camel = [x.replace(x[0], x[0].upper()) for x in field_camel]
@@ -43,20 +41,20 @@ def str_to_camel_style(string):
 	return field_camel
 
 
-def	get_price(quote_time_series_store, field, period, quarter=0):
-	'''
+def get_price(fundamental_indicators, indicator_field, period, quarter=0):
+	"""
 	The function takes a table field, formats it camel style.
 	Finds the price of this field in a quarter, formats the price, and returns its string representation.
-	'''
+	"""
 
-	if 'Available to' in field:
-		field = field.replace('Available to', 'Availto', 1)
-	if '&' in field:
-		field = field.replace('&', 'And')
+	if 'Available to' in indicator_field:
+		indicator_field = indicator_field.replace('Available to', 'Availto', 1)
+	if '&' in indicator_field:
+		indicator_field = indicator_field.replace('&', 'And')
 
-	field_camel = str_to_camel_style(field)
+	field_camel = str_to_camel_style(indicator_field)
 
-	price = quote_time_series_store.get(period + field_camel)
+	price = fundamental_indicators.get(period + field_camel)
 	if price is None:
 		return '-'
 
@@ -72,40 +70,40 @@ def	get_price(quote_time_series_store, field, period, quarter=0):
 
 	if 'EPS' in field_camel:
 		return f'{price:.2f}'
-	
+
 	price = price_formatting(price)
 	return price
 
 
-def create_tuple_field(quote_time_series_store, field):
-	list_field = []
-	list_field.append(field)
-	list_field.append(get_price(quote_time_series_store, field, 'trailing'))
+def create_tuple_field(fundamental_indicators, indicator_field):
+	list_field = list()
+	list_field.append(indicator_field)
+	list_field.append(get_price(fundamental_indicators, indicator_field, 'trailing'))
 	for i in range(3, -1, -1):
-		list_field.append(get_price(quote_time_series_store, field, 'annual', i))
+		list_field.append(get_price(fundamental_indicators, indicator_field, 'annual', i))
 	return tuple(list_field)
 
 
-def get_responce(ticker):
-	url = f'https://finance.yahoo.com/quote/{ticker}/financials?p={ticker}'
+def get_response(ticker_name):
+	url = f'https://finance.yahoo.com/quote/{ticker_name}/financials?p={ticker_name}'
 
-	req = requests.get(url, headers={'User-Agent': 'Custom'})
-	if req.status_code != 200:
-		raise RuntimeError(f'Server ruterned {req.status_code}')
-	if req.url != url:
+	resp = requests.get(url, headers={'User-Agent': 'Custom'})
+	if resp.status_code != 200:
+		raise RuntimeError(f'Server returned {resp.status_code}')
+	if resp.url != url:
 		raise RuntimeError('Wrong ticker name')
 
-	return req
+	return resp
 
 
 if __name__ == '__main__':
 	if len(sys.argv) != 3:
 		raise RuntimeError('Wrong number of arguments')
-	
+
 	ticker = sys.argv[1]
 	field = sys.argv[2]
 
-	req = get_responce(ticker)
+	req = get_response(ticker)
 
 	# with open(f'{ticker}.html', 'w') as f:
 	# 	f.write(req.text)
@@ -127,7 +125,7 @@ if __name__ == '__main__':
 	# 	print(data, file=f)
 
 	print(create_tuple_field(quote_time_series_store, field))
-	
+
 	# os.remove(f'{ticker}.html')
 	# os.remove(f'{ticker}.json')
 	# os.remove(f'{ticker}_quote_time_series_store.json')
@@ -159,59 +157,61 @@ def test_str_to_camel_style():
 
 
 def test_get_price():
-	req = get_responce('TSLA')
+	resp = get_response('TSLA')
 
-	soup = BeautifulSoup(req.text, 'html.parser')
-	script = soup.find('script', text=re.compile('root.App.main'))
-	json_text = re.search(r'\s*root.App.main\s*=\s*({.*?})\s*;\s*$', str(script), flags=re.DOTALL | re.MULTILINE).group(1)
-	data_dict = json.loads(json_text)
+	bs = BeautifulSoup(resp.text, 'html.parser')
+	script_find = bs.find('script', text=re.compile('root.App.main'))
+	json_txt = re.search(r'\s*root.App.main\s*=\s*({.*?})\s*;\s*$', str(script_find), flags=re.DOTALL |
+																						re.MULTILINE).group(1)
 
-	quote_time_series_store = data_dict['context']['dispatcher']['stores']['QuoteTimeSeriesStore']['timeSeries']
-	field = "Total Revenue"
+	data = json.loads(json_txt)
 
-	price = get_price(quote_time_series_store, field, 'trailing')
+	fundamental_indicators = data['context']['dispatcher']['stores']['QuoteTimeSeriesStore']['timeSeries']
+	indicator_field = "Total Revenue"
+
+	price = get_price(fundamental_indicators, indicator_field, 'trailing')
 	assert price == '35,940,000'
 
-	price = get_price(quote_time_series_store, field, 'annual', 1)
+	price = get_price(fundamental_indicators, indicator_field, 'annual', 1)
 	assert price == '21,461,268'
 
-	price = get_price(quote_time_series_store, field, 'annual', 2)
+	price = get_price(fundamental_indicators, indicator_field, 'annual', 2)
 	assert price == '24,578,000'
 
 
 def test_create_tuple_field():
-	req = get_responce('TSLA')
+	resp = get_response('TSLA')
 
-	soup = BeautifulSoup(req.text, 'html.parser')
-	script = soup.find('script', text=re.compile('root.App.main'))
-	json_text = re.search(r'\s*root.App.main\s*=\s*({.*?})\s*;\s*$', str(script), flags=re.DOTALL | re.MULTILINE).group(1)
-	data_dict = json.loads(json_text)
+	bs = BeautifulSoup(resp.text, 'html.parser')
+	script_find = bs.find('script', text=re.compile('root.App.main'))
+	json_txt = re.search(r'\s*root.App.main\s*=\s*({.*?})\s*;\s*$', str(script_find), flags=re.DOTALL |
+																						re.MULTILINE).group(1)
+	data = json.loads(json_txt)
 
-	quote_time_series_store = data_dict['context']['dispatcher']['stores']['QuoteTimeSeriesStore']['timeSeries']
-	field = "Total Revenue"
+	fundamental_indicators = data['context']['dispatcher']['stores']['QuoteTimeSeriesStore']['timeSeries']
+	indicator_field = "Total Revenue"
 
-	tuple_field = create_tuple_field(quote_time_series_store, field)
+	tuple_field = create_tuple_field(fundamental_indicators, indicator_field)
 	assert isinstance(tuple_field, tuple)
 	assert tuple_field == ('Total Revenue',	'35,940,000', '31,536,000', '24,578,000', '21,461,268',	'11,758,751')
 
-	field = "Cost of Revenue"
-	tuple_field = create_tuple_field(quote_time_series_store, field)
+	indicator_field = "Cost of Revenue"
+	tuple_field = create_tuple_field(fundamental_indicators, indicator_field)
 	assert tuple_field == ('Cost of Revenue', '28,329,000', '24,906,000', '20,509,000', '17,419,247', '9,536,264')
 	
 
-def test_get_responce():
+def test_get_response():
 	try:
-		get_responce('TSLA')
+		get_response('TSLA')
 	except Exception:
 		assert False
 	
 	try:
-		get_responce('qwesasfxzc')
-	except:
+		get_response('qwesasfxzc')
+	except Exception:
 		assert True
 	
 	try:
-		get_responce('FB')
-	except:
+		get_response('FB')
+	except Exception:
 		assert False
-

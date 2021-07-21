@@ -2,16 +2,15 @@
 
 from bs4 import BeautifulSoup
 import sys
-import os
 import re
 import json
 import urllib.request
 
 
 def price_formatting(price):
-	'''
+	"""
 	Accepts a float or int price, formats it, and returns the price converted to string.
-	'''
+	"""
 
 	sign = 1
 	if price < 0:
@@ -29,9 +28,9 @@ def price_formatting(price):
 
 
 def str_to_camel_style(string):
-	'''
+	"""
 	Convert string to camel styles. "Hello World" -> "helloWorld"
-	'''
+	"""
 
 	field_camel = string.split(' ')
 	field_camel = [x.replace(x[0], x[0].upper()) for x in field_camel]
@@ -39,11 +38,11 @@ def str_to_camel_style(string):
 	return field_camel
 
 
-def	get_price(quote_time_series_store, field, period, quarter=0):
-	'''
+def get_price(quote_time_series_store, field, period, quarter=0):
+	"""
 	The function takes a table field, formats it camel style.
 	Finds the price of this field in a quarter, formats the price, and returns its string representation.
-	'''
+	"""
 
 	if 'Available to' in field:
 		field = field.replace('Available to', 'Availto', 1)
@@ -85,7 +84,7 @@ def main(argv):
 		req.add_header('User-Agent', 'Custom')
 		r = urllib.request.urlopen(req)
 		if r.getcode() != 200:
-			raise RuntimeError(f'Server ruterned {req.status_code}')
+			raise RuntimeError(f'Server returned {r.getcode()}')
 		if r.geturl() != url:
 			raise RuntimeError('Wrong ticker name')
 	except Exception:
@@ -111,7 +110,7 @@ def main(argv):
 	# with open(f'{ticker}_quote_time_series_store.json', 'w') as f:
 	# 	print(data, file=f)
 
-	list_field = []
+	list_field = list()
 	list_field.append(field)
 	list_field.append(get_price(quote_time_series_store, field, 'trailing'))
 	for i in range(3, -1, -1):

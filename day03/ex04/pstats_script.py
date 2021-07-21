@@ -4,7 +4,6 @@ import os
 import pstats
 import sys
 import cProfile
-import financial
 
 
 if __name__ == '__main__':

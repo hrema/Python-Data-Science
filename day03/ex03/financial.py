@@ -3,16 +3,15 @@
 from bs4 import BeautifulSoup
 import sys
 import requests
-import os
 import re
 import json
 import time
 
 
 def price_formatting(price):
-	'''
+	"""
 	Takes a float or int price, formats it, and returns the price converted to string.
-	'''
+	"""
 
 	sign = 1
 	if price < 0:
@@ -30,9 +29,9 @@ def price_formatting(price):
 
 
 def str_to_camel_style(string):
-	'''
+	"""
 	Convert string to camel styles. "Hello World" -> "HelloWorld"
-	'''
+	"""
 
 	field_camel = string.split(' ')
 	field_camel = [x.replace(x[0], x[0].upper()) for x in field_camel]
@@ -40,20 +39,20 @@ def str_to_camel_style(string):
 	return field_camel
 
 
-def	get_price(quote_time_series_store, field, period, quarter=0):
-	'''
+def get_price(fundamental_indicators, indicator_field, period, quarter=0):
+	"""
 	The function takes a table field, formats it camel style.
 	Finds the price of this field in a quarter, formats the price, and returns its string representation.
-	'''
+	"""
 
-	if 'Available to' in field:
-		field = field.replace('Available to', 'Availto', 1)
-	if '&' in field:
-		field = field.replace('&', 'And')
+	if 'Available to' in indicator_field:
+		indicator_field = indicator_field.replace('Available to', 'Availto', 1)
+	if '&' in indicator_field:
+		indicator_field = indicator_field.replace('&', 'And')
 
-	field_camel = str_to_camel_style(field)
+	field_camel = str_to_camel_style(indicator_field)
 
-	price = quote_time_series_store.get(period + field_camel)
+	price = fundamental_indicators.get(period + field_camel)
 	if price is None:
 		return '-'
 
@@ -74,12 +73,12 @@ def	get_price(quote_time_series_store, field, period, quarter=0):
 	return price
 
 
-def create_tuple_field(quote_time_series_store, field):
-	list_field = []
-	list_field.append(field)
-	list_field.append(get_price(quote_time_series_store, field, 'trailing'))
+def create_tuple_field(fundamental_indicators, indicator_field):
+	list_field = list()
+	list_field.append(indicator_field)
+	list_field.append(get_price(fundamental_indicators, indicator_field, 'trailing'))
 	for i in range(3, -1, -1):
-		list_field.append(get_price(quote_time_series_store, field, 'annual', i))
+		list_field.append(get_price(fundamental_indicators, indicator_field, 'annual', i))
 	return tuple(list_field)
 
 
@@ -94,7 +93,7 @@ if __name__ == '__main__':
 	try:
 		req = requests.get(url, headers={'User-Agent': 'Custom'})
 		if req.status_code != 200:
-			raise RuntimeError(f'Server ruterned {req.status_code}')
+			raise RuntimeError(f'Server returned {req.status_code}')
 		if req.url != url:
 			raise RuntimeError('Wrong ticker name')
 	except Exception:
