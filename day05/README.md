@@ -50,6 +50,17 @@
 5) Используя метод apply разделить столбец 'Make_n_model' на два: 'Make' и 'Model'. Удалить столбец 'Make_n_model'. 
    Сохранить DataFrame в файл data/auto.json.
    
+## ex03
+1) Прочитать файл data/auto.json и сделать 'CarNumber' столбцом индекса.
+
+
+2) Сделать несколько выборок по DataFrame.
+
+
+3) Сделать агрегаты с 'Make' и 'Model'.
+
+
+4) Сделать агрегаты с 'CarNumber'.
 
 # Использованные ресурсы:
 
@@ -62,3 +73,5 @@ https://www.codegrepper.com/code-examples/python/extract+month+from+datetime+pan
 https://stackoverflow.com/questions/45751390/pandas-how-to-use-pd-cut
 
 https://www.geeksforgeeks.org/split-a-text-column-into-two-columns-in-pandas-dataframe/
+
+https://stackoverflow.com/questions/12096252/use-a-list-of-values-to-select-rows-from-a-pandas-dataframe
