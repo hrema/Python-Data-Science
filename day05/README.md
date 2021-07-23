@@ -62,6 +62,29 @@
 
 4) Сделать агрегаты с 'CarNumber'.
 
+## ex04:
+1) Прочитать файл data/auto.json и с помощью pd.options.display.float_format настроить вывод чисел с плавающей запятой.
+
+
+2) Нужно создать выборку из DataFrame, содержащую 200 наблюдений и объединить ее с DataFrame в новый DataFrame 
+   concat_rows.
+
+   
+3) Создать Series year, содержащую рандомные числа в диапозоне [1980 - 2019]. Объединить year и concat_rows в новый 
+   DataFrame fines.
+   
+
+4) Создать Series surname, содержащую фамилии из файла data/surname.json. Создать DataFrame owners с двумя 
+   столбцами: 'CarNumber' и 'SURNAME'. Придумать и добавить 5 наблюдений в fines. Удалить 20 наблюдений из owners, 
+   придумать и добавить 3 новых. Разными способами объединить fines и owners.
+   
+
+5) Создать сводную таблицу из fines.
+
+
+6) Сохранить fines и owners в одноименные csv файлы.
+
+
 # Использованные ресурсы:
 
 https://thispointer.com/pandas-skip-rows-while-reading-csv-file-to-a-dataframe-using-read_csv-in-python/
@@ -75,3 +98,9 @@ https://stackoverflow.com/questions/45751390/pandas-how-to-use-pd-cut
 https://www.geeksforgeeks.org/split-a-text-column-into-two-columns-in-pandas-dataframe/
 
 https://stackoverflow.com/questions/12096252/use-a-list-of-values-to-select-rows-from-a-pandas-dataframe
+
+https://numpy.org/doc/stable/reference/random/generated/numpy.random.randint.html
+
+https://newtechaudit.ru/pandas-merge-join-concatenate/
+
+http://dfedorov.spb.ru/pandas/%D0%A1%D0%B2%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F%20%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%20%D0%B2%20pandas.html
