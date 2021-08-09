@@ -104,3 +104,5 @@ https://numpy.org/doc/stable/reference/random/generated/numpy.random.randint.htm
 https://newtechaudit.ru/pandas-merge-join-concatenate/
 
 http://dfedorov.spb.ru/pandas/%D0%A1%D0%B2%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F%20%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%20%D0%B2%20pandas.html
+
+https://engineering.upside.com/a-beginners-guide-to-optimizing-pandas-code-for-speed-c09ef2c6a4d6
